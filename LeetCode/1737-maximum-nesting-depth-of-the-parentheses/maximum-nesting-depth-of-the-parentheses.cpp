@@ -1,7 +1,6 @@
 class Solution {
 public:
     int maxDepth(string s) {
-    stack<int > st;
     int count=0;
     int maxi=0;
     for(auto val :s){
