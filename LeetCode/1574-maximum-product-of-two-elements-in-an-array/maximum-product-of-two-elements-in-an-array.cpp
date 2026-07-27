@@ -1,17 +1,13 @@
 class Solution {
 public:
     int maxProduct(vector<int>& nums) {
-        // simple fine the two max integer in one loop and return their -1 -1 val
-        int max1 = 0;
-        int max2 = 0;
-        for (auto val : nums) {
-            if (val > max1) {
-                max2 = max1;
-                max1 = val;
-            } else if (val > max2) {
-                max2 = val;
+        //bruteforce
+        int res = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            for (int j = i + 1; j < nums.size(); j++) {
+                res = max(((nums[i] - 1) * (nums[j] - 1)), res);
             }
         }
-        return (max1 - 1) * (max2 - 1);
+        return res;
     }
 };
