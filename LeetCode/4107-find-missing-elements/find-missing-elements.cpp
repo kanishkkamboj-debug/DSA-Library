@@ -1,22 +1,16 @@
 class Solution {
 public:
     vector<int> findMissingElements(vector<int>& nums) {
-        int maxi = INT_MIN;
-        int mini = INT_MAX;
-        // JUST create an array mark which element is present itreate over it
-        // and push :)
+        // 2nd approach
         vector<int> ans;
-        vector<bool> present(101, false);
         sort(nums.begin(), nums.end());
-        for (auto val : nums) {
-            present[val] = true;
-            maxi = max(maxi, val);
-            mini = min(mini, val);
-        }
-
-        for (int i = mini; i < maxi; i++) {
-            if (!present[i]) {
-                ans.push_back(i);
+        for (int i = 0; i < nums.size() - 1; i++) {
+            if (nums[i + 1] - nums[i] == 1)
+                continue;
+            int j = nums[i] + 1;
+            while (j != nums[i + 1]) {
+                ans.push_back(j);
+                j++;
             }
         }
         return ans;
