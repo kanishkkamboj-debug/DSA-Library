@@ -6,8 +6,7 @@ public:
         //  number of elements remains the same
         if (mat.size() * mat[0].size() != r * c)
             return mat;
-        if (mat.size() == r && mat[0].size() == c)
-            return mat;
+
         int n = mat[0].size();
         vector<vector<int>> ans(r, vector<int>(c));
         for (int i = 0; i < r * c; i++) {
